@@ -321,10 +321,10 @@ class Home_model extends CI_Model {
   public function get_table_awlr($table,$date_temp,$date_temp_2,$objecttype){
 
     if($objecttype=='RIVER'){
-      $this->db->select('id,nama_station,wl_siaga,tma,discharge');
+      $this->db->select('id,nama_station,wl_siaga,tma,discharge,disch_siaga');
     }
     else{
-      $this->db->select('nama_station,wl_siaga,tma,discharge_inflow,discharge');
+      $this->db->select('nama_station,wl_siaga,tma,discharge_inflow,discharge,disch_siaga');
     }
 
     $this->db->select("to_char(\"datetime\", 'YYYY-MM-DD HH24:MI')as datetime",false);

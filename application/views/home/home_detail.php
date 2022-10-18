@@ -35,12 +35,21 @@
 					<p class="detail-informasi-text f700 clr2"><?php echo $table[0]['DATETIME'] ?></p>
 					<div class="hrc"></div>
 
-					<p class="detail-informasi-text">Status Siaga</p>
+					<p class="detail-informasi-text">Status Siaga Elevasi</p>
 					<p class="st-siaga
 					<?php if($table[0]['wl_siaga']=='NORMAL'){ ?>siaga-biru<?php } ?>
 					<?php  if($table[0]['wl_siaga']=='HIJAU'){ ?>siaga-hijau<?php } ?>
 					<?php  if($table[0]['wl_siaga']=='KUNING'){ ?>siaga-kuning<?php } ?>
 					<?php  if($table[0]['wl_siaga']=='MERAH'){ ?>siaga-merah<?php } ?>
+					clr2 f700"><?php echo $table[0]['wl_siaga'] ?></p>
+					<div class="hrc"></div>
+
+					<p class="detail-informasi-text">Status Siaga Debit</p>
+					<p class="st-siaga
+					<?php if($table[0]['disch_siaga']=='NORMAL'){ ?>siaga-biru<?php } ?>
+					<?php  if($table[0]['disch_siaga']=='HIJAU'){ ?>siaga-hijau<?php } ?>
+					<?php  if($table[0]['disch_siaga']=='KUNING'){ ?>siaga-kuning<?php } ?>
+					<?php  if($table[0]['disch_siaga']=='MERAH'){ ?>siaga-merah<?php } ?>
 					clr2 f700"><?php echo $table[0]['wl_siaga'] ?></p>
 					<div class="hrc"></div>
 

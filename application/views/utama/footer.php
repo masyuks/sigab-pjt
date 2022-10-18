@@ -65,7 +65,7 @@
     +"<strong>Nama Stasiun :</strong> <?php echo $row['nama_station']?><br>"
     +"<strong>Tipe :</strong> <?php echo $row['objecttype']?><br>"
     +"<strong>Tinggi Permukaan Air :</strong> <?php echo $row['tma']?><br>"
-    +"<strong>Status Siaga :</strong> <?php echo $row['wl_siaga']?><br>"
+    +"<strong>Status Siaga :</strong> <?php echo $row['wl_siaga']?> | <?php echo $row['disch_siaga']?><br>"
     +"<strong>Waktu :</strong> <?php echo $row['DATETIME']?><br>"
     +"<div style='width:100%;text-align:center'>"
     +"<a class='genric-btn info radius' style='height: 30px;line-height: 30px;font-size: 13px;color:white' onclick='peta_detail(\"<?php echo $this->encrypt->encode($row['TableData']); ?>\")'>Detail</a>"
@@ -75,17 +75,14 @@
     var feature = new OpenLayers.Feature.Vector(
             new OpenLayers.Geometry.Point( <?php echo $row['x']?> ,<?php echo $row['y']?> ).transform(epsg4326, projectTo),
             {description:semua} ,
-            <?php if($row['wl_siaga']=='NORMAL'){?>
-            {externalGraphic: '<?php echo base_url();echo 'assets/img/biru.png'?>', graphicHeight: 25, graphicWidth: 25, graphicXOffset:-12, graphicYOffset:-25  }
-            <?php } ?>
-            <?php if($row['wl_siaga']=='HIJAU'){?>
-            {externalGraphic: '<?php echo base_url();echo 'assets/img/hijau-01.png'?>', graphicHeight: 25, graphicWidth: 25, graphicXOffset:-12, graphicYOffset:-25  }
-            <?php } ?>
-            <?php if($row['wl_siaga']=='KUNING'){?>
-            {externalGraphic: '<?php echo base_url();echo 'assets/img/kuning-01.png'?>', graphicHeight: 25, graphicWidth: 25, graphicXOffset:-12, graphicYOffset:-25  }
-            <?php } ?>
-            <?php if($row['wl_siaga']=='MERAH'){?>
+            <?php if($row['wl_siaga']=='MERAH' || $row['disch_siaga']=='MERAH'){?>
             {externalGraphic: '<?php echo base_url();echo 'assets/img/merah-01.png'?>', graphicHeight: 25, graphicWidth: 20, graphicXOffset:-12, graphicYOffset:-25  }
+            <?php } else if($row['wl_siaga']=='KUNING' || $row['disch_siaga']=='KUNING'){?>
+            {externalGraphic: '<?php echo base_url();echo 'assets/img/kuning-01.png'?>', graphicHeight: 25, graphicWidth: 25, graphicXOffset:-12, graphicYOffset:-25  }
+            <?php } else if($row['wl_siaga']=='HIJAU' || $row['disch_siaga']=='HIJAU'){?>
+            {externalGraphic: '<?php echo base_url();echo 'assets/img/hijau-01.png'?>', graphicHeight: 25, graphicWidth: 25, graphicXOffset:-12, graphicYOffset:-25  }
+            <?php } else if($row['wl_siaga']=='NORMAL' || $row['disch_siaga']=='NORMAL'){?>
+            {externalGraphic: '<?php echo base_url();echo 'assets/img/biru.png'?>', graphicHeight: 25, graphicWidth: 25, graphicXOffset:-12, graphicYOffset:-25  }
             <?php } ?>
         );
     vectorLayer.addFeatures(feature);

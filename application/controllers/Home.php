@@ -59,22 +59,31 @@ class Home extends CI_Controller {
 		//--urutkan berdasarkan merah kuning hijau normal
 		$temp['data'] = array();
 		foreach ($test123['data'] as $data) {
-			if($data['wl_siaga']=='MERAH'){
+			if($data['wl_siaga']=='MERAH' || $data['disch_siaga']=='MERAH'){
 				array_push($temp['data'],$data);
 			}
 		}
 		foreach ($test123['data'] as $data) {
-			if($data['wl_siaga']=='KUNING'){
+			if($data['wl_siaga']=='KUNING' && $data['disch_siaga']!='MERAH'){
+				array_push($temp['data'],$data);
+			} 
+			else if($data['disch_siaga']=='KUNING' && $data['wl_siaga']!='MERAH'){
 				array_push($temp['data'],$data);
 			}
 		}
 		foreach ($test123['data'] as $data) {
-			if($data['wl_siaga']=='HIJAU'){
+			if($data['wl_siaga']=='HIJAU' && $data['disch_siaga']!='MERAH' && $data['disch_siaga']!='KUNING'){
+				array_push($temp['data'],$data);
+			}
+			else if($data['disch_siaga']=='KUNING' && $data['wl_siaga']!='MERAH' && $data['wl_siaga']!='KUNING'){
 				array_push($temp['data'],$data);
 			}
 		}
 		foreach ($test123['data'] as $data) {
-			if($data['wl_siaga']=='NORMAL'){
+			if($data['wl_siaga']=='NORMAL' && $data['disch_siaga']!='MERAH' && $data['disch_siaga']!='KUNING' && $data['disch_siaga']!='HIJAU'){
+				array_push($temp['data'],$data);
+			}
+			else if($data['disch_siaga']=='KUNING' && $data['wl_siaga']!='MERAH' && $data['wl_siaga']!='KUNING' && $data['wl_siaga']!='HIJAU'){
 				array_push($temp['data'],$data);
 			}
 		}

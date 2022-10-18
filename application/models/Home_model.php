@@ -206,7 +206,7 @@ class Home_model extends CI_Model {
     // $table1234 = Array();
     foreach ($table as $value) {
       if ($this->db->table_exists($value) ){
-        $this->db->select('id,nama_station,wl_siaga,tma');
+        $this->db->select('id,nama_station,wl_siaga, tma, disch_siaga, discharge');
         $this->db->select("to_char(\"datetime\", 'YYYY-MM-DD HH24:MI')as datetime",false);
         $this->db->from($value);
         $this->db->limit(1);

@@ -46,12 +46,12 @@
 							<p class="mb-0 clr2 fw500"><?php echo $row['nama']?></p>
 						</div>
 						<div class="col-md-6"	style="padding:10px 15px;margin-bottom:4px;background-color:#f5f5f5">
-							<p class="mb-0 clr2 fw500"><?php echo $row['wl_siaga']?></p>
+							<p class="mb-0 clr2 fw500"><?php echo $row['wl_siaga']?> | <?php echo $row['disch_siaga']?></p>
 							<div
-							<?php if($row['wl_siaga']=='NORMAL'){ ?>class="siaga-biru"<?php } ?>
-							<?php  if($row['wl_siaga']=='HIJAU'){ ?>class="siaga-hijau "<?php } ?>
-							<?php  if($row['wl_siaga']=='KUNING'){ ?>class="siaga-kuning "<?php } ?>
-							<?php  if($row['wl_siaga']=='MERAH'){ ?>class="siaga-merah"<?php } ?>
+							<?php if($row['wl_siaga']=='MERAH' || $row['disch_siaga']=='MERAH'){ ?>class="siaga-merah"
+							<?php } else if($row['wl_siaga']=='KUNING' || $row['disch_siaga']=='KUNING'){ ?>class="siaga-kuning "
+							<?php } else if($row['wl_siaga']=='HIJAU' || $row['disch_siaga']=='HIJAU'){ ?>class="siaga-hijau "
+							<?php } else if($row['wl_siaga']=='NORMAL' || $row['disch_siaga']=='NORMAL'){ ?>class="siaga-biru"<?php } ?>
 							style="border-radius: 50%;border: 2px solid #ffffff;width: 20px;height: 20px; display: inline-block;position: absolute;right: 0;top:13px;margin-right: 10px;"></div>
 						</div>
 					</a>
@@ -125,12 +125,12 @@
 									<p class="mb-0 clr2 fw500"><?php echo $row['nama']?></p>
 								</div>
 								<div class="col-md-6"	style="padding:10px 15px;margin-bottom:4px;background-color:#f5f5f5">
-									<p class="mb-0 clr2 fw500"><?php echo $row['wl_siaga']?></p>
+									<p class="mb-0 clr2 fw500"><?php echo $row['wl_siaga']?> | <?php echo $row['disch_siaga']?></p>
 									<div
-									<?php if($row['wl_siaga']=='NORMAL'){ ?>class="siaga-biru"<?php } ?>
-									<?php  if($row['wl_siaga']=='HIJAU'){ ?>class="siaga-hijau "<?php } ?>
-									<?php  if($row['wl_siaga']=='KUNING'){ ?>class="siaga-kuning "<?php } ?>
-									<?php  if($row['wl_siaga']=='MERAH'){ ?>class="siaga-merah"<?php } ?>
+									<?php if($row['wl_siaga']=='MERAH' || $row['disch_siaga']=='MERAH'){ ?>class="siaga-merah"
+									<?php } else if($row['wl_siaga']=='KUNING' || $row['disch_siaga']=='KUNING'){ ?>class="siaga-kuning "
+									<?php } else if($row['wl_siaga']=='HIJAU' || $row['disch_siaga']=='HIJAU'){ ?>class="siaga-hijau "
+									<?php } else if($row['wl_siaga']=='NORMAL' || $row['disch_siaga']=='NORMAL'){ ?>class="siaga-biru"<?php } ?>
 									style="border-radius: 50%;border: 2px solid #ffffff;width: 20px;height: 20px; display: inline-block;position: absolute;right: 0;top:13px;margin-right: 10px;"></div>
 								</div>
 							</a>

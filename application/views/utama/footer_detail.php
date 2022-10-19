@@ -68,17 +68,14 @@ var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
   var feature = new OpenLayers.Feature.Vector(
     new OpenLayers.Geometry.Point( <?php echo $detail[0]['x'];?> ,<?php echo $detail[0]['y'];?> ).transform(epsg4326, projectTo),
     {description:semua} ,
-    <?php if($table[0]['wl_siaga']=='NORMAL'){?>
-    {externalGraphic: '<?php echo base_url();echo 'assets/img/biru.png'?>', graphicHeight: 25, graphicWidth: 20, graphicXOffset:-12, graphicYOffset:-25  }
-    <?php } ?>
-    <?php if($table[0]['wl_siaga']=='HIJAU'){?>
-    {externalGraphic: '<?php echo base_url();echo 'assets/img/hijau-01.png'?>', graphicHeight: 25, graphicWidth: 20, graphicXOffset:-12, graphicYOffset:-25  }
-    <?php } ?>
-    <?php if($table[0]['wl_siaga']=='KUNING'){?>
-    {externalGraphic: '<?php echo base_url();echo 'assets/img/kuning-01.png'?>', graphicHeight: 25, graphicWidth: 20, graphicXOffset:-12, graphicYOffset:-25  }
-    <?php } ?>
-    <?php if($table[0]['wl_siaga']=='MERAH'){?>
+    <?php if($table[0]['wl_siaga']=='MERAH' || $table[0]['disch_siaga']=='MERAH'){?>
     {externalGraphic: '<?php echo base_url();echo 'assets/img/merah-01.png'?>', graphicHeight: 25, graphicWidth: 20, graphicXOffset:-12, graphicYOffset:-25  }
+    <?php } else if($table[0]['wl_siaga']=='KUNING' || $table[0]['disch_siaga']=='KUNING'){?>
+    {externalGraphic: '<?php echo base_url();echo 'assets/img/kuning-01.png'?>', graphicHeight: 25, graphicWidth: 20, graphicXOffset:-12, graphicYOffset:-25  }
+    <?php } else if($table[0]['wl_siaga']=='HIJAU' || $table[0]['disch_siaga']=='HIJAU'){?>
+    {externalGraphic: '<?php echo base_url();echo 'assets/img/hijau-01.png'?>', graphicHeight: 25, graphicWidth: 20, graphicXOffset:-12, graphicYOffset:-25  }
+    <?php } else if($table[0]['wl_siaga']=='NORMAL' || $table[0]['disch_siaga']=='NORMAL'){?>
+    {externalGraphic: '<?php echo base_url();echo 'assets/img/biru.png'?>', graphicHeight: 25, graphicWidth: 20, graphicXOffset:-12, graphicYOffset:-25  }
     <?php } ?>
   );
   vectorLayer.addFeatures(feature);

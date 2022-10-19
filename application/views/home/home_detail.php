@@ -50,7 +50,7 @@
 					<?php  if($table[0]['disch_siaga']=='HIJAU'){ ?>siaga-hijau<?php } ?>
 					<?php  if($table[0]['disch_siaga']=='KUNING'){ ?>siaga-kuning<?php } ?>
 					<?php  if($table[0]['disch_siaga']=='MERAH'){ ?>siaga-merah<?php } ?>
-					clr2 f700"><?php echo $table[0]['wl_siaga'] ?></p>
+					clr2 f700"><?php echo $table[0]['disch_siaga'] ?></p>
 					<div class="hrc"></div>
 
 
